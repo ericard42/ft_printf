@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/05/21 16:55:22 by ericard          ###   ########.fr       */
+/*   Updated: 2020/06/03 01:09:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,40 @@
 t_flags     init_flags()
 {
     t_flags     flags;
-    flags.dot = 0;
+
     flags.minus = 0;
+    flags.zero = 0;
     flags.star = 0;
+    flags.dot = 0;
     flags.type = 0;
     flags.width = 0;
-    flags.zero = 0;
     return(flags);
 }
 
-int ft_flags()
+t_flags ft_flags(va_list va, size_t i, const char *format)
 {
-	int i;
+    t_flags flags;
 
-	return (i);
+    flags = init_flags();
+    if(format[i] == '-')
+    {
+        flags.minus = 1;
+        i++;
+    }
+    if(format[i] == '0' && flags.minus != 1)
+    {
+        flags.zero = 1;
+        i++;
+    }
+    if(format[i] == '*')
+    {
+        flags.star = 1;
+        i++;
+    }
+    if(format[i] == '.')
+    {
+        flags.dot = 1;
+        i++;
+    }
+    return(flags);
 }
