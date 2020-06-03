@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:54:55 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 01:17:52 by ericard          ###   ########.fr       */
+/*   Updated: 2020/06/03 19:17:19 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
-			flags = ft_flags(va, i, format);
-			ft_type(format, ret, i, flags, va);
+			flags = ft_flags(&i, format, va);
+			ret += ft_type(format, &i, flags, va);
 		}
-		else
+		else if (format[i] != '%')
 		{
 			ft_putchar(format[i]);
-			i++;
 			ret++;
 		}
+		i++;
 	}
 	va_end(va);
 	return (ret);

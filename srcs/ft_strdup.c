@@ -1,13 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexa.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/21 16:57:03 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 01:10:05 by ericard          ###   ########.fr       */
+/*   Created: 2020/06/03 17:56:19 by ericard           #+#    #+#             */
+/*   Updated: 2020/06/03 17:56:53 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+char	*ft_strdup(const char *s)
+{
+	char	*new;
+	size_t	i;
+
+	i = ft_strlen(s);
+	if (!(new = malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		new[i] = s[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}

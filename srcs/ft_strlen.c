@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/09 18:37:06 by ericard           #+#    #+#             */
-/*   Updated: 2020/05/09 18:38:42 by ericard          ###   ########.fr       */
+/*   Created: 2019/11/04 16:19:51 by ericard           #+#    #+#             */
+/*   Updated: 2020/06/03 11:54:39 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void    ft_putchar(char c)
+size_t		ft_strlen(const char *str)
 {
-    write(1, &c, 1);
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
