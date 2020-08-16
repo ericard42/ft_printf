@@ -6,11 +6,11 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:55:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 19:22:16 by ericard          ###   ########.fr       */
+/*   Updated: 2020/08/16 19:38:15 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int     ft_s(t_flags flags, va_list va)
 {

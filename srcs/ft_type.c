@@ -6,11 +6,11 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 00:51:13 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 19:16:43 by ericard          ###   ########.fr       */
+/*   Updated: 2020/08/16 19:38:24 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int    ft_type(const char *format, size_t *i, t_flags flags, va_list va)
 {

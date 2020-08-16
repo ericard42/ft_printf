@@ -6,11 +6,11 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 19:16:24 by ericard          ###   ########.fr       */
+/*   Updated: 2020/08/16 19:37:48 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 t_flags     init_flags()
 {

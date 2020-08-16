@@ -6,11 +6,11 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:19:51 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 11:54:39 by ericard          ###   ########.fr       */
+/*   Updated: 2020/08/16 19:38:20 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 size_t		ft_strlen(const char *str)
 {

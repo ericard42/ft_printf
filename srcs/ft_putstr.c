@@ -6,11 +6,11 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 18:39:01 by ericard           #+#    #+#             */
-/*   Updated: 2020/06/03 15:47:50 by ericard          ###   ########.fr       */
+/*   Updated: 2020/08/16 19:38:04 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void    ft_putchar(char c)
 {
