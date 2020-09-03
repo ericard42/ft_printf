@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/08/16 19:37:48 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/03 14:51:40 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ t_flags ft_flags(size_t *i, const char *format, va_list va)
     {
         flags.zero = 1;
         (*i)++;
+    }
+    while(format[*i] >= '1' && format[*i] <= '9')
+    {
+        flags.width = 10 * flags.width + (format[*i] - 48);
+	    (*i)++;
     }
     if(format[*i] == '*')
     {
