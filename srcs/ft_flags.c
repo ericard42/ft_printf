@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/04 00:36:21 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/04 15:54:44 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,47 +25,54 @@ t_flags     init_flags()
     return(flags);
 }
 
-t_flags ft_flags(size_t *i, const char *format, va_list va)
+void        ft_is_star(va_list va, t_flags *flags)
 {
-    t_flags flags;
+    flags->star = 1;
+    flags->width = va_arg(va, int);
+    if (flags->width < 0)
+    {
+        flags->minus = 1;
+        flags->width *= -1;
+    }
+}
 
-    flags = init_flags();
-    if(format[*i] == '-')
+size_t      ft_is_dot(t_flags *flags, size_t i, const char *format, va_list va)
+{
+    flags->dot = 1;
+    i++;
+    if (format[i] == '*')
     {
-        flags.minus = 1;
-        (*i)++;
+        flags->prec = va_arg(va, int);
+        i++;
     }
-    if(format[*i] == '0')
+    else
     {
-        flags.zero = 1;
-        (*i)++;
-        if(format[*i] == '-')
+        while (ft_isdigit(format[i]))
         {
-            flags.minus = 1;
-            flags.zero = 0;
-            (*i)++;
+            flags->prec = (flags->prec *10) + (format[i] - 48);
+            i++;
         }
     }
-    while(format[*i] >= '0' && format[*i] <= '9')
+    return (i);
+}
+
+int         ft_flags(t_flags *flags, size_t i, const char *format, va_list va)
+{
+    while (ft_isdigit(format[i]) || flag_list(format[i]))
     {
-        flags.width = 10 * flags.width + (format[*i] - 48);
-	    (*i)++;
+        if (format[i] == '0' && flags->minus == 0)
+            flags->zero = 1;
+        if (format[i] == '.')
+            i = ft_is_dot(&flags, i, format, va);
+        if (format[i] == '-')
+            flags->minus = 1;
+        if (format[i] == '*')
+            ft_is_star(va, &flags);
+        if (ft_isdigit(format[i]))
+            flags->width = (flags->width * 10) + (format[i] - 48);
+        if (type_list)
+            break;
+        i++;
     }
-    if(format[*i] == '*')
-    {
-        flags.star = 1;
-        flags.width = va_arg(va, int);
-        (*i)++;
-    }
-    if(format[*i] == '.')
-    {
-        flags.dot = 1;
-        (*i)++;
-        while(format[*i] >= '0' && format[*i] <= '9')
-        {
-            flags.prec = 10 * flags.prec + (format[*i] - 48);
-            (*i)++;
-        }
-    }
-    return(flags);
+    return(i);
 }
