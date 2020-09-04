@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/04 15:54:44 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/05 01:22:18 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ int         ft_flags(t_flags *flags, size_t i, const char *format, va_list va)
         if (format[i] == '.')
             i = ft_is_dot(&flags, i, format, va);
         if (format[i] == '-')
+        {
             flags->minus = 1;
+            flags->zero = 0;
+        }
         if (format[i] == '*')
             ft_is_star(va, &flags);
         if (ft_isdigit(format[i]))
