@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2020/09/04 14:15:52 by ericard          ###   ########.fr        #
+#    Updated: 2020/09/05 15:26:09 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	=	ft_printf.c \
 			srcs/ft_strdup.c \
 			srcs/ft_isdigit.c \
 			srcs/ft_lists.c \
+			srcs/ft_width.c \
 
 INCLUDE	=	-I includes/
 

@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/05 01:22:18 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/05 15:52:06 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,20 @@ int         ft_flags(t_flags *flags, size_t i, const char *format, va_list va)
 {
     while (ft_isdigit(format[i]) || flag_list(format[i]))
     {
-        if (format[i] == '0' && flags->minus == 0)
+        if (format[i] == '0' && flags->minus == 0 && flags->width == 0)
             flags->zero = 1;
         if (format[i] == '.')
-            i = ft_is_dot(&flags, i, format, va);
+            i = ft_is_dot(flags, i, format, va);
         if (format[i] == '-')
         {
             flags->minus = 1;
             flags->zero = 0;
         }
         if (format[i] == '*')
-            ft_is_star(va, &flags);
+            ft_is_star(va, flags);
         if (ft_isdigit(format[i]))
             flags->width = (flags->width * 10) + (format[i] - 48);
-        if (type_list)
+        if (type_list(format[i]))
             break;
         i++;
     }

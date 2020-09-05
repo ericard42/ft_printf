@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type.c                                          :+:      :+:    :+:   */
+/*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/03 00:51:13 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/05 13:37:59 by ericard          ###   ########.fr       */
+/*   Created: 2020/09/05 15:25:06 by ericard           #+#    #+#             */
+/*   Updated: 2020/09/05 15:49:45 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_type(t_flags flags, const char *format, size_t i, va_list va)
+void    ft_width_space(int min)
 {
-    int ret;
+    int i;
 
-    ret = 0;
-    if(format[i] == 'c' || format[i] == 's' || format[i] == '%')
-        ret += ft_strings(flags, format, i, va);
-    else if(format[i] == 'p')
+    i = 0;
+    while (i < min)
     {
+        ft_putchar(' ');
         i++;
     }
-    else if(format[i] == 'd' || format[i] == 'i')
+}
+
+void    ft_width_zero(int min)
+{
+    int i;
+    while (i < min)
     {
+        ft_putchar('0');
         i++;
     }
-    else if(format[i] == 'u' || format[i] == 'x' || format[i] == 'X')
-    {
-        i++;
-    }
-    return (ret);
 }
