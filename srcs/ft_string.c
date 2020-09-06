@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:55:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 17:31:32 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/06 20:43:53 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int     ft_s(t_flags flags, va_list va)
     if (flags.minus == 1)
         ft_putstr(str, ret);
     if (flags.width > ret)
-        ft_width_space(flags.width - ret);
+        ft_print_space(flags.width - ret);
     if (flags.minus == 0)
         ft_putstr(str, ret);
     return ((flags.width > ret) ? flags.width : ret);
@@ -38,22 +38,22 @@ int     ft_char(t_flags flags, va_list va)
     if (flags.minus == 1)
         ft_putchar(va_arg(va, int));
     if (flags.width > ret)
-        ft_width_space(flags.width - ret);
+        ft_print_space(flags.width - ret);
     if (flags.minus == 0)
         ft_putchar(va_arg(va, int));
     return ((flags.width > ret) ? flags.width : ret);
 }
 
-int     ft_strings(t_flags flags, const char *format, size_t i, va_list va)
+int     ft_strings(t_flags flags, char c, va_list va)
 {
     int     ret;
 
     ret = 0;
-    if (format[i] == 's')
+    if (c == 's')
         ret = ft_s(flags, va);
-    if (format[i] == 'c')
+    if (c == 'c')
         ret = ft_char(flags, va);
-    if (format[i] == '%')
+    if (c == '%')
     {
         ft_putchar('%');
         ret = 1;

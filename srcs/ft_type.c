@@ -6,30 +6,26 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 00:51:13 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/05 13:37:59 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/06 20:56:32 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_type(t_flags flags, const char *format, size_t i, va_list va)
+int    ft_type(t_flags flags, char c, va_list va)
 {
     int ret;
 
     ret = 0;
-    if(format[i] == 'c' || format[i] == 's' || format[i] == '%')
-        ret += ft_strings(flags, format, i, va);
-    else if(format[i] == 'p')
-    {
-        i++;
-    }
-    else if(format[i] == 'd' || format[i] == 'i')
-    {
-        i++;
-    }
-    else if(format[i] == 'u' || format[i] == 'x' || format[i] == 'X')
-    {
-        i++;
-    }
+    if(c == 'c' || c == 's' || c == '%')
+        ret += ft_strings(flags, c, va);
+    else if (c == 'd')
+        ret += ft_decimal(flags, va);
+    else if(c == 'p')
+        ret += 1;
+    else if (c == 'i')
+        ret += 1;
+    else if (c == 'u' || c == 'x' || c == 'X')
+        ret += 1;
     return (ret);
 }
