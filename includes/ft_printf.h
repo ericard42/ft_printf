@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:55:01 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/05 15:44:35 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/06 17:20:23 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct    s_flags
 int     ft_printf(const char *format, ...);
 void    ft_putstr(char *str, int max);
 void    ft_putchar(char c);
-int		ft_atoi(const char *str);
 int     ft_flags(t_flags *flags, size_t i, const char *format, va_list va);
 int     ft_type(t_flags flags, const char *format, size_t i, va_list va);
 int     ft_strings(t_flags flags, const char *format, size_t i, va_list va);
