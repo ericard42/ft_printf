@@ -6,40 +6,42 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 20:20:35 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 20:59:31 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/06 21:39:41 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_intlen(long int nbr)
+static int		size(long nb)
 {
-    int len;
+	int		len;
 
-    len = 0;
-    if (nbr < 0)
-    {
-        len++;
-        nbr = -nbr;
-    }
-    while (nbr > 1)
-    {
-        len++;
-        nbr = nbr / 10;
-    }
-    return (len);
+	if (nb == 0)
+		return (1);
+	len = 0;
+	if (nb < 0)
+	{
+		nb = nb * -1;
+		len++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	long	nb;
 	int		len;
 	char	*str;
 
 	nb = n;
-	len = ft_intlen(nb);
+	len = size(nb);
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (0);
+		return (NULL);
 	str[len--] = '\0';
 	if (nb == 0)
 	{
