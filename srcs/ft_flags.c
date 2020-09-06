@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 13:59:26 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 16:12:39 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/06 22:47:50 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_flags        ft_is_star(va_list va, t_flags flags)
     {
         flags.minus = 1;
         flags.width *= -1;
+        flags.zero = 0;
     }
     return (flags);
 }
