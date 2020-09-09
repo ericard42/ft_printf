@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 15:25:06 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 20:43:16 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/09 21:12:49 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void    ft_print_space(int min)
 void    ft_print_zero(int min)
 {
     int i;
+
+    i = 0;
     while (i < min)
     {
         ft_putchar('0');
