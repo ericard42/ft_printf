@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:55:01 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 20:57:56 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:41:51 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void    ft_print_space(int min);
 void    ft_print_zero(int min);
 int     ft_decimal(t_flags flags, va_list va);
 char	*ft_itoa(int n);
+void	*ft_memset(void *s, int c, size_t n);
+char    *ft_itoa_base(int base, unsigned long int nbr, char c);
+int     ft_pointer(t_flags flags, va_list va);
 
 #endif

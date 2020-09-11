@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/03 00:51:13 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/11 23:46:46 by ericard          ###   ########.fr       */
+/*   Created: 2019/11/04 16:59:32 by ericard           #+#    #+#             */
+/*   Updated: 2020/09/11 22:44:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int    ft_type(t_flags flags, char c, va_list va)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    int ret;
+	size_t	i;
 
-    ret = 0;
-    if(c == 'c' || c == 's' || c == '%')
-        ret += ft_strings(flags, c, va);
-    else if (c == 'd' || c == 'i')
-        ret += ft_decimal(flags, va);
-    else if(c == 'p')
-        ret += ft_pointer(flags, va);
-    else if (c == 'u' || c == 'x' || c == 'X')
-        ret += 1;
-    return (ret);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char*)s)[i] = c;
+		i++;
+	}
+	return (s);
 }

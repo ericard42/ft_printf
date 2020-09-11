@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2020/09/06 20:20:48 by ericard          ###   ########.fr        #
+#    Updated: 2020/09/11 22:44:26 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ SRCS	=	ft_printf.c \
 			srcs/ft_putstr.c \
 			srcs/ft_flags.c \
 			srcs/ft_strlen.c \
-			srcs/ft_integer.c \
 			srcs/ft_pointer.c \
 			srcs/ft_string.c \
 			srcs/ft_type.c \
@@ -24,6 +23,8 @@ SRCS	=	ft_printf.c \
 			srcs/ft_width.c \
 			srcs/ft_decimal.c \
 			srcs/ft_itoa.c \
+			srcs/ft_itoa_base.c \
+			srcs/ft_memset.c \
 
 INCLUDE	=	-I includes/
 

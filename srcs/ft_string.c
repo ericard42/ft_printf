@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:55:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/09 22:07:40 by ericard          ###   ########.fr       */
+/*   Updated: 2020/09/11 23:31:24 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,31 @@ int     ft_s(t_flags flags, va_list va)
     return ((flags.width > ret) ? flags.width : ret);
 }
 
-int     ft_char(t_flags flags, va_list va)
+int     ft_char(t_flags flags, char c)
 {
     int     ret;
 
     ret = 1;
     if (flags.minus == 1)
-        ft_putchar(va_arg(va, int));
+        ft_putchar(c);
     if (flags.width > ret)
         ft_print_space(flags.width - ret);
     if (flags.minus == 0)
-        ft_putchar(va_arg(va, int));
+        ft_putchar(c);
+    return ((flags.width > ret) ? flags.width : ret);
+}
+
+int     ft_percent(t_flags flags)
+{
+    int     ret;
+
+    ret = 1;
+    if (flags.minus == 1)
+        ft_putchar('%');
+    if (flags.width > ret)
+        ft_print_space(flags.width - ret);
+    if (flags.minus == 0)
+        ft_putchar('%');
     return ((flags.width > ret) ? flags.width : ret);
 }
 
@@ -52,11 +66,8 @@ int     ft_strings(t_flags flags, char c, va_list va)
     if (c == 's')
         ret = ft_s(flags, va);
     if (c == 'c')
-        ret = ft_char(flags, va);
+        ret = ft_char(flags, va_arg(va, int));
     if (c == '%')
-    {
-        ft_putchar('%');
-        ret = 1;
-    }
+        ret = ft_percent(flags);
     return (ret);
 }
