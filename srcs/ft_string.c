@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:55:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/11 23:31:24 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/06 09:58:55 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ int     ft_char(t_flags flags, char c)
     return ((flags.width > ret) ? flags.width : ret);
 }
 
-int     ft_percent(t_flags flags)
-{
-    int     ret;
-
-    ret = 1;
-    if (flags.minus == 1)
-        ft_putchar('%');
-    if (flags.width > ret)
-        ft_print_space(flags.width - ret);
-    if (flags.minus == 0)
-        ft_putchar('%');
-    return ((flags.width > ret) ? flags.width : ret);
-}
-
 int     ft_strings(t_flags flags, char c, va_list va)
 {
     int     ret;
@@ -68,6 +54,6 @@ int     ft_strings(t_flags flags, char c, va_list va)
     if (c == 'c')
         ret = ft_char(flags, va_arg(va, int));
     if (c == '%')
-        ret = ft_percent(flags);
+        ret = ft_char(flags, '%');
     return (ret);
 }
