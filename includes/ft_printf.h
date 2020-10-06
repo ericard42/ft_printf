@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:55:01 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/14 12:52:02 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/06 10:38:59 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int     ft_decimal(t_flags flags, va_list va);
 char	*ft_itoa(int n);
 void	*ft_memset(void *s, int c, size_t n);
 char    *ft_itoa_base(int base, unsigned long int nbr, char c);
-int     ft_pointer(t_flags flags, va_list va);
+int     ft_hexa(t_flags flags, va_list va, char c);
 
 #endif
