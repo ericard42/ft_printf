@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2020/10/06 10:42:33 by ericard          ###   ########.fr        #
+#    Updated: 2020/10/09 12:02:29 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS	=	ft_printf.c \
 			srcs/ft_putstr.c \
 			srcs/ft_flags.c \
 			srcs/ft_strlen.c \
-			srcs/ft_hexa.c \
+			srcs/ft_pointer.c \
 			srcs/ft_string.c \
 			srcs/ft_type.c \
 			srcs/ft_strdup.c \

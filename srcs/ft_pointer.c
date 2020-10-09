@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:56:09 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/06 10:46:30 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/09 12:04:22 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     hexa_null(t_flags flags, char *print)
     return (flags.width > 5 ? flags.width : 5);
 }
 
-int     ft_hexa(t_flags flags, va_list va, char c)
+int     ft_pointer(t_flags flags, va_list va)
 {
     char                *print;
     int                 ret;
@@ -32,7 +32,7 @@ int     ft_hexa(t_flags flags, va_list va, char c)
     nbr = va_arg(va, unsigned long int);
     if (!nbr)
         return (hexa_null(flags, ft_strdup("(nil)")));
-    print = ft_itoa_base(16, nbr, c - 23);
+    print = ft_itoa_base(16, nbr, 'a');
     ret = ft_strlen(print) + 2;
     if (flags.minus == 1)
     {       
