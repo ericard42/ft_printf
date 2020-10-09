@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/21 16:56:09 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/09 12:14:10 by ericard          ###   ########.fr       */
+/*   Created: 2020/10/09 12:06:17 by ericard           #+#    #+#             */
+/*   Updated: 2020/10/09 12:38:27 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     hexa_null(t_flags flags, char *print)
-{
-    if (flags.minus == 1)
-        ft_putstr(print, 5);
-    if (flags.width > 5)
-        ft_print_space(flags.width - 5);
-    if (flags.minus == 0)
-        ft_putstr(print, 5);
-    return (flags.width > 5 ? flags.width : 5);
-}
-
-int     ft_pointer(t_flags flags, va_list va)
+int     ft_hexa(t_flags flags, va_list va, char c)
 {
     char                *print;
     int                 ret;
     unsigned long int   nbr;
 
     nbr = va_arg(va, unsigned long int);
-    if (!nbr)
-        return (hexa_null(flags, ft_strdup("(nil)")));
-    print = ft_itoa_base(16, nbr, 'a');
-    ret = ft_strlen(print) + 2;
+    print = ft_itoa_base(16, nbr, c - 23);
+    ret = ft_strlen(print);
     if (flags.minus == 1)
-    {       
-        ft_putstr("0x", 2);
-        ft_putstr(print, ret - 2);
+    {
+        if (flags.prec > ret)
+            ft_print_zero(flags.prec - ret);
+        ft_putstr(print, ret);
     }
     if (flags.width > ret)
-        ft_print_space(flags.width - ret);
+    {
+        if (flags.zero == 1 && flags.dot == 0)
+            ft_print_zero(flags.width - ret);
+        else if (flags.prec > ret)
+            ft_print_space(flags.width - flags.prec);
+        else
+            ft_print_space(flags.width - ret);
+    }
     if (flags.minus == 0)
     {
-        ft_putstr("0x", 2);
-        ft_putstr(print, ret - 2);
+        if (flags.prec > ret)
+            ft_print_zero(flags.prec - ret);
+        ft_putstr(print, ret);
     }
     return (flags.width > ret ? flags.width : ret);
 }
