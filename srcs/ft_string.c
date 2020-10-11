@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 16:55:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/06 10:18:40 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/11 17:51:58 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,29 @@ int     ft_s(t_flags flags, va_list va)
 
 int     ft_char(t_flags flags, char c)
 {
-    int     ret;
-
-    ret = 1;
     if (flags.minus == 1)
         ft_putchar(c);
-    if (flags.width > ret)
-        ft_print_space(flags.width - ret);
+    if (flags.width > 1)
+        ft_print_space(flags.width - 1);
     if (flags.minus == 0)
         ft_putchar(c);
-    return ((flags.width > ret) ? flags.width : ret);
+    return ((flags.width > 1) ? flags.width : 1);
+}
+
+int		ft_percent(t_flags flags)
+{
+    if (flags.minus == 1)
+        ft_putchar('%');
+    if (flags.width > 1)
+	{
+		if (flags.zero == 1)
+			ft_print_zero(flags.width - 1);
+		else
+			ft_print_space(flags.width - 1);
+	}
+    if (flags.minus == 0)
+        ft_putchar('%');
+    return ((flags.width > 1) ? flags.width : 1);
 }
 
 int     ft_strings(t_flags flags, char c, va_list va)
@@ -54,6 +67,6 @@ int     ft_strings(t_flags flags, char c, va_list va)
     if (c == 'c')
         ret = ft_char(flags, va_arg(va, int));
     if (c == '%')
-        ret = ft_char(flags, '%');
+        ret = ft_percent(flags);
     return (ret);
 }
