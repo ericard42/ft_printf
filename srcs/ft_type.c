@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 00:51:13 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/09 12:07:15 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/14 18:30:33 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int    ft_type(t_flags flags, char c, va_list va)
     else if (c == 'x' || c == 'X')
         ret += ft_hexa(flags, va, c);
     else if (c == 'u')
-        ret += 1;
+        ret += ft_unsigned(flags, va);
     return (ret);
 }
