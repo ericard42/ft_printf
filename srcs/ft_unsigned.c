@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 18:20:19 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/14 18:27:00 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/14 22:55:00 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int     u_positive(t_flags flags, int ret, char *nbr)
     }
     if (flags.width > ret)
     {
-        if (flags.zero == 1 && flags.dot == 0)
+        if (flags.zero == 1 && flags.prec < 0)
             ft_print_zero(flags.width - ret);
         else if (flags.prec > ret)
             ft_print_space(flags.width - flags.prec);
@@ -38,51 +38,6 @@ int     u_positive(t_flags flags, int ret, char *nbr)
     return (ret);
 }
 
-int     u_negative(t_flags flags, int ret, char *nbr)
-{
-    if (nbr[0] == '-' && flags.prec > ret)
-        flags.prec++;
-    if (flags.minus == 1)
-    {
-        if (nbr[0] == '-')
-        {
-            ft_putchar('-');
-            nbr++;
-        }
-        if (flags.prec > ret)
-            ft_print_zero(flags.prec - ret);
-        ft_putstr(nbr, ret);
-    }
-    if (flags.width > ret)
-    {
-        if (flags.zero == 1 && (flags.dot == 0 || flags.prec < 0))
-        {
-            if (nbr[0] == '-')
-            {
-                ft_putchar('-');
-                nbr++;
-            }
-            ft_print_zero(flags.width - ret);
-        }
-        else if (flags.prec > ret)
-            ft_print_space(flags.width - flags.prec);
-        else
-            ft_print_space(flags.width - ret);
-    }
-    if (flags.minus == 0)
-    {
-        if (nbr[0] == '-')
-        {
-            ft_putchar('-');
-            nbr++;
-        }
-        if (flags.prec > ret)
-            ft_print_zero(flags.prec - ret);
-        ft_putstr(nbr, ret);
-    }
-    return ((flags.prec > ret) ? flags.prec : ret);
-}
-
 int     u_zero(t_flags flags, int ret, char *nbr)
 {
     if (flags.dot == 1 && flags.prec == 0)
@@ -95,7 +50,7 @@ int     u_zero(t_flags flags, int ret, char *nbr)
     }
     if (flags.width > ret)
     {
-        if (flags.zero == 1 && flags.dot == 0)
+        if (flags.zero == 1 && flags.prec < 0)
             ft_print_zero(flags.width - ret);
         else if (flags.prec > ret)
             ft_print_space(flags.width - flags.prec);
@@ -120,8 +75,6 @@ int     ft_unsigned(t_flags flags, va_list va)
     u = va_arg(va, unsigned int);
     nbr = ft_itoa(u);
     ret = ft_strlen(nbr);
-    if (u < 0)
-        ret = u_negative(flags, ret, nbr);
     if (u > 0)
        ret = u_positive(flags, ret, nbr);
     if (u == 0)
