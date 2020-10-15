@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:54:55 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/06 19:55:40 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/15 23:13:52 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_printf(const char *format, ...)
 {
-	size_t		i;
-	va_list 	va;
+	int			i;
+	va_list		va;
 	int			ret;
 	t_flags		flags;
 
@@ -38,5 +38,5 @@ int	ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(va);
-	return(ret);
+	return (ret);
 }

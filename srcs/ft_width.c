@@ -6,32 +6,32 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 15:25:06 by ericard           #+#    #+#             */
-/*   Updated: 2020/09/09 21:12:49 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/15 23:12:20 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_print_space(int min)
+void	ft_print_space(int min)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < min)
-    {
-        ft_putchar(' ');
-        i++;
-    }
+	i = 0;
+	while (i < min)
+	{
+		ft_putchar(' ');
+		i++;
+	}
 }
 
-void    ft_print_zero(int min)
+void	ft_print_zero(int min)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < min)
-    {
-        ft_putchar('0');
-        i++;
-    }
+	i = 0;
+	while (i < min)
+	{
+		ft_putchar('0');
+		i++;
+	}
 }
