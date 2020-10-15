@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 18:20:19 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/14 22:55:00 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/15 14:52:35 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ int     ft_unsigned(t_flags flags, va_list va)
     char            *nbr;
 
     u = va_arg(va, unsigned int);
-    nbr = ft_itoa(u);
+    nbr = ft_itoa_u(u);
     ret = ft_strlen(nbr);
+    if ((int)u < 0)
+        u = (unsigned int)(4294967295 + 1 + u);
     if (u > 0)
        ret = u_positive(flags, ret, nbr);
     if (u == 0)

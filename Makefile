@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2020/10/14 18:31:11 by ericard          ###   ########.fr        #
+#    Updated: 2020/10/15 14:52:10 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS	=	ft_printf.c \
 			srcs/ft_memset.c \
 			srcs/ft_hexa.c \
 			srcs/ft_unsigned.c \
+			srcs/ft_itoa_u.c \
 
 INCLUDE	=	-I includes/
 
