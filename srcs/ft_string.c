@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:08:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:09:12 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/17 18:20:01 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_s(t_flags flags, va_list va)
 
 	str = ft_strdup(va_arg(va, char *));
 	ret = ft_strlen(str);
-	if (flags.dot == 1 && flags.prec < ret)
+	if (flags.dot == 1 && flags.prec < ret && flags.prec > 0)
 		ret = flags.prec;
 	if (flags.minus == 1)
 		ft_putstr(str, ret);
