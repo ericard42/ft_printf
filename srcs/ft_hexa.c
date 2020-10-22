@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:58:51 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 18:53:15 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 18:56:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 {
 	char				*print;
 	int					ret;
-	int					nbr;
+	unsigned long int	nbr;
 
 	nbr = va_arg(va, unsigned long int);
 	if (nbr == 0)
