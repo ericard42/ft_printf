@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:58:51 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:01:47 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:26:27 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 		ft_hexa_print(flags, print, ret);
 	if (flags.prec > flags.width)
 		flags.width = flags.prec;
+	free (print);
 	return (flags.width > ret ? flags.width : ret);
 }

@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:56:19 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:08:06 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:21:58 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ char	*ft_strdup(const char *s)
 	char	*new;
 	size_t	i;
 
-	if (s == NULL)
-	{
-		if (!(new = malloc(sizeof(char) * (1))))
-			return (NULL);
-		new[0] = '\0';
-		return (new);
-	}
 	i = ft_strlen(s);
 	if (!(new = malloc(sizeof(char) * (i + 1))))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:10:42 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:11:25 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:26:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		u_positive(t_flags flags, int ret, char *nbr)
 	}
 	if (flags.width > ret)
 	{
-		if (flags.zero == 1 && flags.prec < 0)
+		if (flags.zero == 1 && (flags.dot == 0 || flags.prec < 0))
 			ft_print_zero(flags.width - ret);
 		else if (flags.prec > ret)
 			ft_print_space(flags.width - flags.prec);
@@ -82,5 +82,6 @@ int		ft_unsigned(t_flags flags, va_list va)
 	if (u == 0)
 		ret = u_zero(flags, ret, nbr);
 	ret = (flags.prec > ret) ? flags.prec : ret;
+	free (nbr);
 	return ((flags.width > ret) ? flags.width : ret);
 }

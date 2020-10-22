@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:08:34 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/17 18:23:40 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:24:46 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ int		ft_s(t_flags flags, va_list va)
 	int		ret;
 	char	*str;
 
-	str = ft_strdup(va_arg(va, char *));
+	str = va_arg(va, char *);
+	if (str == NULL)
+		str = ft_strdup("(null)");
+	else
+		str = ft_strdup(str);
 	ret = ft_strlen(str);
 	if (flags.dot == 1 && flags.prec < ret && flags.prec >= 0)
 		ret = flags.prec;
@@ -27,6 +31,7 @@ int		ft_s(t_flags flags, va_list va)
 		ft_print_space(flags.width - ret);
 	if (flags.minus == 0)
 		ft_putstr(str, ret);
+	free (str);
 	return ((flags.width > ret) ? flags.width : ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:06:20 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:07:08 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:27:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		ft_pointer(t_flags flags, va_list va)
 		ft_putstr("0x", 2);
 		ft_putstr(print, ret - 2);
 	}
+	free(print);
 	return (flags.width > ret ? flags.width : ret);
 }
