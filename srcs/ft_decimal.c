@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:08:12 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 15:25:58 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 15:37:44 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		dec_negative(t_flags flags, int ret, char *nbr)
 		print_neg(flags, ret, nbr);
 	if (flags.width > ret)
 	{
-		if (flags.zero == 1 && (flags.dot == 0 || flags.prec <= 0))
+		if (flags.zero == 1 && (flags.dot == 0 || flags.prec < 0))
 		{
 			if (nbr[0] == '-')
 			{

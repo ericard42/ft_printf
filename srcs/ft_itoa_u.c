@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 14:49:36 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/21 16:16:27 by ericard          ###   ########.fr       */
+/*   Updated: 2020/10/22 18:38:32 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ char			*ft_itoa_u(unsigned int nb)
 		return (NULL);
 	str[len--] = '\0';
 	if (nb == 0)
-	{
 		str[0] = '0';
-	}
 	while (nb > 0)
 	{
 		str[len] = (nb % 10) + '0';
