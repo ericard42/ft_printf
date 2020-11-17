@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:06:20 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 15:27:54 by ericard          ###   ########.fr       */
+/*   Updated: 2020/11/17 17:25:33 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 
 int		hexa_null_dot(t_flags flags)
 {
+	int ret;
+
+	ret = 2;
 	if (flags.minus == 1)
 		ft_putstr("0x", 2);
 	if (flags.width > 2)
 		ft_print_space(flags.width - 2);
 	if (flags.minus == 0)
 		ft_putstr("0x", 2);
-	return (flags.width > 2 ? flags.width : 2);
+	if (flags.prec < 0)
+	{
+		ft_putstr("0", 1);
+		ret++;
+	}
+	return (flags.width > ret ? flags.width : ret);
 }
 
 int		ft_pointer(t_flags flags, va_list va)
@@ -30,7 +38,7 @@ int		ft_pointer(t_flags flags, va_list va)
 	unsigned long int	nbr;
 
 	nbr = va_arg(va, unsigned long int);
-	if (!nbr && flags.dot == 1)
+	if (!nbr && flags.dot == 1 && flags.prec == 0)
 		return (hexa_null_dot(flags));
 	print = ft_itoa_base(16, nbr, 'a');
 	ret = ft_strlen(print) + 2;
