@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:10:42 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 18:40:39 by ericard          ###   ########.fr       */
+/*   Updated: 2020/11/20 01:26:59 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		u_zero(t_flags flags, int ret, char *nbr)
 	}
 	if (flags.width > ret)
 	{
-		if (flags.zero == 1 && flags.prec < 0)
+		if (flags.zero == 1 && flags.prec <= 0)
 			ft_print_zero(flags.width - ret);
 		else if (flags.prec > ret)
 			ft_print_space(flags.width - flags.prec);
