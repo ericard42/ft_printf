@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:58:51 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 18:56:54 by ericard          ###   ########.fr       */
+/*   Updated: 2020/12/10 05:43:23 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 	unsigned long int	nbr;
 
 	nbr = va_arg(va, unsigned long int);
-	if (nbr == 0)
+	if (nbr == 0 && flags.dot == 1 && flags.prec >= 0)
+		print = "";
+	else if (nbr == 0)
 		print = ft_itoa(0);
 	else
 		print = ft_itoa_base(16, nbr, c - 23);
@@ -46,6 +48,7 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 		ft_hexa_print(flags, print, ret);
 	if (flags.prec > flags.width)
 		flags.width = flags.prec;
-	free(print);
+	if (nbr != 0 && flags.dot != 1 && flags.prec < 0)
+		free(print);
 	return (flags.width > ret ? flags.width : ret);
 }
