@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:06:20 by ericard           #+#    #+#             */
-/*   Updated: 2020/11/18 01:39:31 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/03 19:23:48 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,24 @@ int		ft_pointer(t_flags flags, va_list va)
 	if (flags.minus == 1)
 	{
 		ft_putstr("0x", 2);
-		if (flags.prec > ret - 2)
+		if (flags.prec > (ret - 2))
 		{
-			ft_print_zero(flags.prec - ret - 2);
+			ft_print_zero(flags.prec - (ret - 2));
 			ret = flags.prec + 2;
 		}
-		ft_putstr(print, ret - 2);
+		ft_putstr(print, (ret - 2));
 	}
 	if (flags.width > ret)
 		ft_print_space(flags.width - ret);
 	if (flags.minus == 0)
 	{
 		ft_putstr("0x", 2);
-		if (flags.prec > ret - 2)
+		if (flags.prec > (ret - 2))
 		{
-			ft_print_zero(flags.prec - ret - 2);
-			ret = flags.prec - 2;
+			ft_print_zero(flags.prec - (ret - 2));
+			ret = flags.prec + 2;
 		}
-		ft_putstr(print, ret - 2);
+		ft_putstr(print, (ret - 2));
 	}
 	free(print);
 	return (flags.width > ret ? flags.width : ret);
