@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:08:12 by ericard           #+#    #+#             */
-/*   Updated: 2020/11/13 16:45:37 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/07 12:14:08 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ int		ft_decimal(t_flags flags, va_list va)
 	if (dec == 0)
 		ret = dec_zero(flags, ret, nbr);
 	ret = (flags.prec > ret) ? flags.prec : ret;
-	free (nbr);
+	free(nbr);
 	return ((flags.width > ret) ? flags.width : ret);
 }

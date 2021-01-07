@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:03:42 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/22 18:49:13 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/07 12:37:06 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		nbrlen(int base, unsigned long int nbr)
 	int		len;
 
 	len = 0;
+	if (nbr == 0)
+		len = 1;
 	while (nbr)
 	{
 		nbr /= base;

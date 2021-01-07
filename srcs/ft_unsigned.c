@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:10:42 by ericard           #+#    #+#             */
-/*   Updated: 2020/11/20 01:26:59 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/07 12:14:15 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int		ft_unsigned(t_flags flags, va_list va)
 	if (u == 0)
 		ret = u_zero(flags, ret, nbr);
 	ret = (flags.prec > ret) ? flags.prec : ret;
-	free (nbr);
+	free(nbr);
 	return ((flags.width > ret) ? flags.width : ret);
 }
