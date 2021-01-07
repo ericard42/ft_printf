@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:08:12 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/07 12:14:08 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/07 14:41:39 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		dec_positive(t_flags flags, int ret, char *nbr)
 	}
 	if (flags.width > ret)
 	{
-		if (flags.zero == 1 && flags.dot == 0)
+		if (flags.zero == 1 && (flags.dot == 0 || flags.prec < 0))
 			ft_print_zero(flags.width - ret);
 		else if (flags.prec > ret)
 			ft_print_space(flags.width - flags.prec);
@@ -52,7 +52,7 @@ void	print_neg(t_flags flags, int ret, char *nbr)
 
 int		dec_negative(t_flags flags, int ret, char *nbr)
 {
-	if (nbr[0] == '-' && flags.prec > ret)
+	if (nbr[0] == '-' && flags.prec >= ret)
 		flags.prec++;
 	if (flags.minus == 1)
 		print_neg(flags, ret, nbr);
@@ -89,7 +89,7 @@ int		dec_zero(t_flags flags, int ret, char *nbr)
 	}
 	if (flags.width > ret)
 	{
-		if (flags.zero == 1 && flags.dot == 0)
+		if (flags.zero == 1 && (flags.dot == 0 || flags.prec < 0))
 			ft_print_zero(flags.width - ret);
 		else if (flags.prec > ret)
 			ft_print_space(flags.width - flags.prec);

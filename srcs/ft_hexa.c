@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:58:51 by ericard           #+#    #+#             */
-/*   Updated: 2020/12/10 05:43:23 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/07 15:21:28 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 	char				*print;
 	int					ret;
 	unsigned long int	nbr;
+	int 				mall;
 
+	mall = 1;
 	nbr = va_arg(va, unsigned long int);
 	if (nbr == 0 && flags.dot == 1 && flags.prec >= 0)
+	{
 		print = "";
+		mall = 0;
+	}
 	else if (nbr == 0)
 		print = ft_itoa(0);
 	else
@@ -48,7 +53,7 @@ int		ft_hexa(t_flags flags, va_list va, char c)
 		ft_hexa_print(flags, print, ret);
 	if (flags.prec > flags.width)
 		flags.width = flags.prec;
-	if (nbr != 0 && flags.dot != 1 && flags.prec < 0)
+	if (mall == 1)
 		free(print);
 	return (flags.width > ret ? flags.width : ret);
 }
