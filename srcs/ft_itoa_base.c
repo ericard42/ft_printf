@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:03:42 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/07 12:37:06 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/09 23:46:31 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		nbrlen(int base, unsigned long int nbr)
 	int		len;
 
 	len = 0;
-	if (nbr == 0)
-		len = 1;
+	if (nbr >= 0 && nbr < 10)
+		return (1);
 	while (nbr)
 	{
 		nbr /= base;
@@ -50,17 +50,19 @@ char	*ft_itoa_base(int base, unsigned long int nbr, char c)
 	char	*str;
 	int		mod;
 
+
 	len = nbrlen(base, nbr);
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	if (!(str = malloc(sizeof(char) * (len))))
 		return (NULL);
 	str[len] = '\0';
+	len--;
 	if (nbr == 0)
 		*str = '0';
 	while (nbr)
 	{
 		mod = nbr % base;
+		str[len] = calculate_char(mod, c);
 		nbr /= base;
-		str[len - 1] = calculate_char(mod, c);
 		len--;
 	}
 	return (str);
