@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:54:55 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/10 01:39:08 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:10:37 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int	ft_printf(const char *format, ...)
 			ft_putchar(format[i]);
 			ret++;
 		}
-		if (format[i])
-			i++;
+		format[i] != 0 ? i++ : 0;
 	}
 	va_end(va);
 	return (ret);

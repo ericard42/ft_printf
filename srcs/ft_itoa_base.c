@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:03:42 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/09 23:46:31 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 13:36:52 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char	*ft_itoa_base(int base, unsigned long int nbr, char c)
 	int		len;
 	char	*str;
 	int		mod;
-
 
 	len = nbrlen(base, nbr);
 	if (!(str = malloc(sizeof(char) * (len))))
