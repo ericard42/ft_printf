@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:55:01 by ericard           #+#    #+#             */
-/*   Updated: 2020/10/15 23:13:24 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:59:02 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,10 @@ size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *s);
 t_flags				init_flags(void);
 int					ft_isdigit(int c);
-int					flag_list(int c);
-int					type_list(int c);
 void				ft_print_space(int min);
 void				ft_print_zero(int min);
 int					ft_decimal(t_flags flags, va_list va);
 char				*ft_itoa(int n);
-void				*ft_memset(void *s, int c, size_t n);
 char				*ft_itoa_base(int base, unsigned long int nbr, char c);
 int					ft_pointer(t_flags flags, va_list va);
 int					ft_hexa(t_flags flags, va_list va, char c);

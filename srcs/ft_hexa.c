@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:58:51 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/11 13:48:05 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:34:26 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_hexa_print(t_flags flags, char *print, int ret)
+static void	ft_hexa_print(t_flags flags, char *print, int ret)
 {
 	if (flags.minus == 1)
 	{
@@ -37,7 +37,7 @@ void	ft_hexa_print(t_flags flags, char *print, int ret)
 	}
 }
 
-int		ft_hexa(t_flags flags, va_list va, char c)
+int			ft_hexa(t_flags flags, va_list va, char c)
 {
 	char				*print;
 	int					ret;

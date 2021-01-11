@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2021/01/11 14:10:28 by ericard          ###   ########.fr        #
+#    Updated: 2021/01/11 14:45:34 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,10 @@ SRCS	=	ft_printf.c \
 			srcs/ft_type.c \
 			srcs/ft_strdup.c \
 			srcs/ft_isdigit.c \
-			srcs/ft_lists.c \
 			srcs/ft_width.c \
 			srcs/ft_decimal.c \
 			srcs/ft_itoa.c \
 			srcs/ft_itoa_base.c \
-			srcs/ft_memset.c \
 			srcs/ft_hexa.c \
 			srcs/ft_unsigned.c \
 			srcs/ft_itoa_u.c \

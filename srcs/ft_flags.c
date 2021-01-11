@@ -6,13 +6,18 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:50:21 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/10 01:30:21 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:45:06 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_flags		init_flags(void)
+static int		flag_list(int c)
+{
+	return ((c == '-') || (c == '0') || (c == '.') || (c == '*'));
+}
+
+t_flags			init_flags(void)
 {
 	t_flags	flags;
 
@@ -25,7 +30,7 @@ t_flags		init_flags(void)
 	return (flags);
 }
 
-t_flags		ft_is_star(va_list va, t_flags flags)
+static t_flags	ft_is_star(va_list va, t_flags flags)
 {
 	flags.star = 1;
 	flags.width = va_arg(va, int);
@@ -38,7 +43,7 @@ t_flags		ft_is_star(va_list va, t_flags flags)
 	return (flags);
 }
 
-size_t		ft_is_dot(t_flags *flags, int i, const char *format, va_list va)
+static size_t	ft_is_dot(t_flags *flags, int i, const char *format, va_list va)
 {
 	flags->dot = 1;
 	if (format[i + 1] == '*' || ft_isdigit(format[i + 1]))
@@ -61,7 +66,7 @@ size_t		ft_is_dot(t_flags *flags, int i, const char *format, va_list va)
 	return (i);
 }
 
-int			ft_flags(t_flags *flags, int i, const char *format, va_list va)
+int				ft_flags(t_flags *flags, int i, const char *format, va_list va)
 {
 	while (ft_isdigit(format[i]) == 1 || flag_list(format[i]))
 	{

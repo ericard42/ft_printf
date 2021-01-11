@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:08:34 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/07 12:14:43 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:38:02 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_s(t_flags flags, va_list va)
+static int	ft_s(t_flags flags, va_list va)
 {
 	int		ret;
 	char	*str;
@@ -40,7 +40,7 @@ int		ft_s(t_flags flags, va_list va)
 	return ((flags.width > ret) ? flags.width : ret);
 }
 
-int		ft_char(t_flags flags, char c)
+static int	ft_char(t_flags flags, char c)
 {
 	if (flags.minus == 1)
 		ft_putchar(c);
@@ -51,7 +51,7 @@ int		ft_char(t_flags flags, char c)
 	return ((flags.width > 1) ? flags.width : 1);
 }
 
-int		ft_percent(t_flags flags)
+static int	ft_percent(t_flags flags)
 {
 	if (flags.minus == 1)
 		ft_putchar('%');
@@ -67,7 +67,7 @@ int		ft_percent(t_flags flags)
 	return ((flags.width > 1) ? flags.width : 1);
 }
 
-int		ft_strings(t_flags flags, char c, va_list va)
+int			ft_strings(t_flags flags, char c, va_list va)
 {
 	int		ret;
 

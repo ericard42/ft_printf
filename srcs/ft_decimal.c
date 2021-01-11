@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 22:08:12 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/07 14:41:39 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:40:17 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		dec_positive(t_flags flags, int ret, char *nbr)
+static int	dec_positive(t_flags flags, int ret, char *nbr)
 {
 	if (flags.minus == 1)
 	{
@@ -38,7 +38,7 @@ int		dec_positive(t_flags flags, int ret, char *nbr)
 	return (ret);
 }
 
-void	print_neg(t_flags flags, int ret, char *nbr)
+static void	print_neg(t_flags flags, int ret, char *nbr)
 {
 	if (nbr[0] == '-')
 	{
@@ -50,7 +50,7 @@ void	print_neg(t_flags flags, int ret, char *nbr)
 	ft_putstr(nbr, ret);
 }
 
-int		dec_negative(t_flags flags, int ret, char *nbr)
+static int	dec_negative(t_flags flags, int ret, char *nbr)
 {
 	if (nbr[0] == '-' && flags.prec >= ret)
 		flags.prec++;
@@ -77,7 +77,7 @@ int		dec_negative(t_flags flags, int ret, char *nbr)
 	return ((flags.prec > ret) ? flags.prec : ret);
 }
 
-int		dec_zero(t_flags flags, int ret, char *nbr)
+static int	dec_zero(t_flags flags, int ret, char *nbr)
 {
 	if (flags.dot == 1 && flags.prec == 0)
 		ret = 0;
@@ -105,7 +105,7 @@ int		dec_zero(t_flags flags, int ret, char *nbr)
 	return (ret);
 }
 
-int		ft_decimal(t_flags flags, va_list va)
+int			ft_decimal(t_flags flags, va_list va)
 {
 	int		ret;
 	int		dec;

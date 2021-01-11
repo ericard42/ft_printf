@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:06:20 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/11 13:52:48 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:37:22 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		p_null_dot(t_flags flags)
+static int	p_null_dot(t_flags flags)
 {
 	int ret;
 
@@ -31,7 +31,7 @@ int		p_null_dot(t_flags flags)
 	return (flags.width > ret ? flags.width : ret);
 }
 
-int		ft_pointer_print(t_flags flags, int ret, char *print)
+static int	ft_pointer_print(t_flags flags, int ret, char *print)
 {
 	ft_putstr("0x", 2);
 	if (flags.prec > (ret - 2))
@@ -43,7 +43,7 @@ int		ft_pointer_print(t_flags flags, int ret, char *print)
 	return (ret);
 }
 
-int		ft_pointer(t_flags flags, va_list va)
+int			ft_pointer(t_flags flags, va_list va)
 {
 	char				*print;
 	int					ret;

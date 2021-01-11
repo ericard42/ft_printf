@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 23:10:42 by ericard           #+#    #+#             */
-/*   Updated: 2021/01/10 01:01:11 by ericard          ###   ########.fr       */
+/*   Updated: 2021/01/11 14:38:29 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		u_positive(t_flags flags, int ret, char *nbr)
+static int	u_positive(t_flags flags, int ret, char *nbr)
 {
 	if (flags.minus == 1)
 	{
@@ -38,7 +38,7 @@ int		u_positive(t_flags flags, int ret, char *nbr)
 	return (ret);
 }
 
-int		u_zero(t_flags flags, int ret, char *nbr)
+static int	u_zero(t_flags flags, int ret, char *nbr)
 {
 	if (flags.dot == 1 && flags.prec == 0)
 		ret = 0;
@@ -66,7 +66,7 @@ int		u_zero(t_flags flags, int ret, char *nbr)
 	return (ret);
 }
 
-int		ft_unsigned(t_flags flags, va_list va)
+int			ft_unsigned(t_flags flags, va_list va)
 {
 	int				ret;
 	unsigned int	u;
