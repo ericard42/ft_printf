@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 12:55:22 by ericard           #+#    #+#              #
-#    Updated: 2021/01/11 14:45:34 by ericard          ###   ########.fr        #
+#    Updated: 2021/01/28 16:21:28 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ $(NAME):	$(OBJS)
 
 .c.o:
 			$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
+			@printf "\e[1A\e[0K"
 
 clean:	
 			$(RM) $(OBJS)
